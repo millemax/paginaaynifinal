@@ -13,49 +13,39 @@
 .navbar-brand img{          //margen de la imagen 
     margin-left: 0rem;
     margin-right: 10rem;
+    min-width: 100%;
+    min-height: 100%;
 }
 .navbar-nav {
     padding-left: 2rem;
 }
 
 .item {
+    height: calc(100vh-72px);
+    min-width: 25rem;
+    position: relative;
     width: 100%;
-   min-width:100%;
 }
 .item video {
-    width: 100%;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    //width: 100%;
     height: auto;
 }
 ///estilos de navar a las pestañas
 .navbar-nav a {
-    //font-family: ;
+    font-family: 'Franklin Gothic Medium';
     font-size: 15px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-weight: bold; 
 }
-.navbar-light .navbar-brand {  
-    color: #fff;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.navbar-light .navbar-nav > .nav-link, .navbar-light .navbar-nav, .navbar-light .navbar-nav
-.nav-link.show, .navbar-light .navbar-nav .show > .nav-link{
-    color: #fff;
-}
-.navbar-light .navbar-nav .nav-link{
-    color: #fff;
-}
 .navbar-nav{
-    text-align: center;
+    text-align: center;   //ubicacion  del los textos de navbar
 }
-.nav-link{
-    padding: .2rem 1rem;
+.w-100{
+    height: 100vh;
 }
-.nav-link.active, .nav-link:focus{}
-
 .video-header .navbar {
     background-color: transparent !important; ///trasnsparencia navebar
     
