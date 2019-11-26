@@ -8,6 +8,7 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { ContactenosComponent } from './contactenos/contactenos.component';
 import { FinalComponent } from './final/final.component';
+import { NavebarComponent } from './navebar/navebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FinalComponent } from './final/final.component';
     ProyectosComponent,
     MultimediaComponent,
     ContactenosComponent,
-    FinalComponent
+    FinalComponent,
+    NavebarComponent
   ],
   imports: [
     BrowserModule,

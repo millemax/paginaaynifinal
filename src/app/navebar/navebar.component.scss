@@ -1,0 +1,62 @@
+.container {
+    
+    margin-left: 0rem;  ///margen del contenedor
+    
+}
+
+.navbar-brand{        ///ancho maximo y minimo del bloque marca-logo
+    max-width: 15%;
+    min-width: 10%;
+
+    
+}
+.navbar-brand img{          //margen de la imagen 
+    margin-left: 0rem;
+    margin-right: 10rem;
+}
+.navbar-nav {
+    padding-left: 2rem;
+}
+
+.item {
+    width: 100%;
+   min-width:100%;
+}
+.item video {
+    width: 100%;
+    height: auto;
+}
+///estilos de navar a las pestañas
+.navbar-nav a {
+    //font-family: ;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold; 
+}
+.navbar-light .navbar-brand {  
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar-light .navbar-nav > .nav-link, .navbar-light .navbar-nav, .navbar-light .navbar-nav
+.nav-link.show, .navbar-light .navbar-nav .show > .nav-link{
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+}
+.navbar-nav{
+    text-align: center;
+}
+.nav-link{
+    padding: .2rem 1rem;
+}
+.nav-link.active, .nav-link:focus{}
+
+.video-header .navbar {
+    background-color: transparent !important; ///trasnsparencia navebar
+    
+}
