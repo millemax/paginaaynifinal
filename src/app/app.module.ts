@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // angular material
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatGridListModule } from '@angular/material';
+import { NavebarComponent } from './navebar/navebar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatGrid
     ProyectosComponent,
     MultimediaComponent,
     ContactenosComponent,
-    FinalComponent
+    FinalComponent,
+    NavebarComponent
   ],
   imports: [
     BrowserModule,
