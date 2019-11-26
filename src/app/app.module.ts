@@ -8,6 +8,11 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { ContactenosComponent } from './contactenos/contactenos.component';
 import { FinalComponent } from './final/final.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// angular material
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatGridListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,14 @@ import { FinalComponent } from './final/final.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatInputModule, 
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
