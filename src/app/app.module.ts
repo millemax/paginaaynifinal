@@ -14,6 +14,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatGridListModule } from '@angular/material';
 import { NavebarComponent } from './navebar/navebar.component';
+import { PruebaComponent } from './prueba/prueba.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { NavebarComponent } from './navebar/navebar.component';
     MultimediaComponent,
     ContactenosComponent,
     FinalComponent,
-    NavebarComponent
+    NavebarComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,9 @@ import { NavebarComponent } from './navebar/navebar.component';
     MatSelectModule,
     MatIconModule,
     MatGridListModule,
+    
+
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
