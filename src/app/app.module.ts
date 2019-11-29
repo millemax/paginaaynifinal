@@ -10,6 +10,7 @@ import { ContactenosComponent } from './contactenos/contactenos.component';
 import { FinalComponent } from './final/final.component';
 import { NavebarComponent } from './navebar/navebar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { NavebarComponent } from './navebar/navebar.component';
     MultimediaComponent,
     ContactenosComponent,
     FinalComponent,
-    NavebarComponent
+    NavebarComponent,
+    
   ],
   imports: [
     BrowserModule,

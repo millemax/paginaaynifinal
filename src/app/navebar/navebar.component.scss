@@ -1,52 +1,49 @@
-.container {
-    
-    margin-left: 0rem;  ///margen del contenedor
-    
-}
+///estilos del video para responsive y nabvar
 
-.navbar-brand{        ///ancho maximo y minimo del bloque marca-logo
-    max-width: 15%;
-    min-width: 10%;
+  @media (max-width: 740px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 100vh;
+    }
+  }
 
-    
-}
-.navbar-brand img{          //margen de la imagen 
-    margin-left: 0rem;
-    margin-right: 10rem;
-    min-width: 100%;
-    min-height: 100%;
-}
+  .top-nav-collapse {
+    background-color: #7ca9c760 !important;
+  }
+
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
+  @media (max-width: 991px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #7ca9c760 !important;
+    }
+  }
+
+  .rgba-gradient {
+   background: -moz-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+   background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+   background: linear-gradient(to 45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+  }
+
+  ///fin de estilos de navbar y video de fondo
+  ///ESTILOS DE letra con google fonts
 .navbar-nav {
-    padding-left: 2rem;
+  //font-family: 'Calistoga', cursive;
+  //font-family: 'Libre Baskerville', serif;
+  //font-family: 'Lobster', cursive;
+  font-family: 'Bitter', serif; //puede seer
+  //font-family: 'Varela Round', sans-serif;
+  text-shadow: 4px 4px 4px #aaa ; //sombra de texto
+  //font-family: 'Tangerine', serif;
+  //font-family: 'Indie Flower', cursive;
+  font-size:15px ;
 }
+//posicion en navbar lista en tooglemenu
+.navbar-nav a{
+text-align: left;  
 
-.item {
-    height: calc(100vh-72px);
-    min-width: 25rem;
-    position: relative;
-    width: 100%;
-}
-.item video {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    //width: 100%;
-    height: auto;
-}
-///estilos de navar a las pestañas
-.navbar-nav a {
-    font-family: 'Franklin Gothic Medium';
-    font-size: 15px;
-    //text-transform: uppercase;
-    font-weight: bold; 
-}
-.navbar-nav{
-    text-align: center;   //ubicacion  del los textos de navbar
-}
-.w-100{
-    height: 100vh;
-}
-.video-header .navbar {
-    background-color: transparent !important; ///trasnsparencia navebar
-    
 }

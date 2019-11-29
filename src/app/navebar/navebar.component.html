@@ -1,54 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full-height">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Document</title>
 </head>
-<header class="item">
-        
-    <div class="he-video" class="embed-responsive embed-responsive-16by9">
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="assets/video/fondoayni1.mp4" type="video/mp4">
-        </video>
-    </div>
 
-<nav class= "navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" >                  <!--fixed top hace fijar en la parte superior a navbar-->
-    <div class="container">
-        <a class= "navbar-brand" href= "#"  ><img src= "/assets/img/logoblancoweb1.png" class="img-fluid d-inline-block " alt= "" ></a>                      <!--en este apartado se poen el logo o marca-->
-        <button class= "navbar-toggler" type= "button" data-toggle= "collapse" data-target= "#navbarSupportedContent-7" aria-controls= "navbarSupportedContent-7" aria-expanded= "false" aria-label= "Toggle navigation" > <!--Este es el boton de menu toogle-->
-            <span class= "navbar-toggler-icon" ></span> 
-        </button>
-
-        <div class= "collapse navbar-collapse" id= "navbarSupportedContent-7" >
-            <ul class= "navbar-nav ml-auto" >                                   <!-- mxl-auto pone a la izquierda al bloque / u -> una lista horizontal-->
-                <li class= "nav-item" >
-                    <a class= "nav-link text-white" href= "#"  >SERVICIOS</a>
-                </li> 
-                <li class= "nav-item " >
-                    <a class= "nav-link text-white" href= "#" >TU PROYECTO</a>
-                </li>
-                <li class= "nav-item" >
-                    <a class= "nav-link text-white" href= "#" >MATERIAL EDUCATIVO</a>
-                </li>
-                <li class= "nav-item" >
-                    <a class= "nav-link text-white" href= "#" >BLOG</a>
-                </li>
-                <li class= "nav-item" >
-                    <a class= "nav-link text-white" href= "#" >CONTACTENOS</a>
-                </li>
-            </ul> 
-        </div>
-    </div>
-</nav> 
-
-</header>
 <body>
-    <section><h1>holaa</h1></section>
+    <!-- Main navigation -->
+  <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+          <div class="container-fluid ">
+            <a class="navbar-brand" href="#"><img src= "/assets/img/logoblancoweb1.png" class="img-fluid d-inline-block lign-middle mr-2" width="130" margin-left="left" alt= "" ></a> <!--LOGO DE LA EMPRESA-->
+            <!--menu hamburguesa toggle-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"> <!--MENU TOOGLE-->
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--fin  ...menu hamburguesa toggle-->
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul class="navbar-nav ml-auto smooth-scroll mt-2 mt-lg-0">
+                <li class="nav-item ">
+                  <a class="nav-link" href="#SERVICIOS" data-offset="90">SERVICIOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#TU_PROYECTO" data-offset="90">TU PROYECTO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#MATERIAL_EDUCATIVO" data-offset="90">EDUCATIVO MATERIAL </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#BLOG" data-offset="90">BLOG</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#CONTACTENOS" data-offset="90">CONTACTENOS</a>
+                </li>
+              </ul>
+              <!-- social Icon  -->
+              <ul class="navbar-nav nav-flex-icons justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <i class="fab fa-facebook-f light-green-text-2"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <i class="fab fa-twitter light-green-text-2"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <i class="fab fa-instagram light-green-text-2"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+        <!-- Full Page Intro -->
+        <div class="view intro-video">
+          <video  playsinline autoplay muted loop>
+            <source src="assets/video/fondoayni1.mp4" type="video/mp4">
+          </video>
+        </div>  
+        <!-- Full Page Intro -->
+    </header>
+    
 </body>
 
 
 
 
 
+
+
+
+ <!--fin html-->
 </html>
