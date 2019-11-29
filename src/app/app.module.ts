@@ -11,10 +11,10 @@ import { FinalComponent } from './final/final.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // angular material
-import { MatSliderModule } from '@angular/material/slider';
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatGridListModule } from '@angular/material';
+
 import { NavebarComponent } from './navebar/navebar.component';
 import { PruebaComponent } from './prueba/prueba.component';
+
 
 
 
@@ -35,12 +35,7 @@ import { PruebaComponent } from './prueba/prueba.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatInputModule, 
-    MatButtonModule,
-    MatSelectModule,
-    MatIconModule,
-    MatGridListModule,
+    
     
 
    
