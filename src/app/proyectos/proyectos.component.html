@@ -1,1 +1,198 @@
-<p>proyectos works!</p>
+
+
+
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3">
+
+           
+            <span style="font-size: 100px;" class="underline--magical titleHola">Hola!</span>
+            <p style="font-size: 30px;">¿ Tienes alguna loca idea tecnologica?</p>
+                
+            
+          </div>
+          <div class="col-sm-3">
+                <p style="font-size: 20px;text-align:justify;" class="textoProyecto">Queremos hacer realidad tu idea o proyecto,
+                    envíanos en cualquiera de los 3 formatos que te mostramos a continuacion y te asesoraremos
+                    de manera gratuita o mejor aún podemos invitarte a nuestras
+                    oficinas, donde las ideas explotan y se hacen realidad.
+                </p>
+            
+          </div>
+          <div class="col-sm">
+              <div class="blog-card">
+                  <div class="meta">
+                    <div class="photo" style="background-image: url(https://peru21.pe/resizer/aB_BjuHrjjHWoNgndGX9m6XSiTQ=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/6H2VUOA5Z5FOZNKQCIJZLPZLWA.jpg)"></div>
+                    <ul class="details">
+                      
+                    </ul>
+                  </div>
+                  <div class="description">
+                    <h1>Deseo explicar en texto mi proyecto</h1>
+                    
+                    <p>Escribe la idea de proyecto que tienes en mente</p>
+                    <i class="cmn-t-pulse fa fa-pencil-alt circle"  data-toggle="modal" data-target="#myModalText" ></i>
+                                    
+                    
+
+                    
+                  </div>
+                </div>
+
+
+                
+
+
+
+                <div class="blog-card alt">
+                  <div class="meta">
+                    <div class="photo" style="background-image: url(https://lh4.googleusercontent.com/xO07-_UUPBO91DTGMlJumVKU2mOmzl77ihzulMqB_LW1Zq9061BO5_J4k3Jqs6MJb1uXOqnzcyv7H9UQPk1OLq20flHK3ovneYgcOKEiJOFGHuxPmBAk0zH6ZTpHaXq1ZvtGN1nS)"></div>
+                    <ul class="details">
+                      
+                    </ul>
+                  </div>
+                  <div class="description">
+                    <h1>Quiero explicar en audio mi proyecto</h1>             
+                    
+                    <p>graba un audio explicando tu proyectos</p>
+
+                    <i class="cmn-t-pulse fa fa-microphone circle" data-toggle="modal" data-target="#myModalAudio" ></i>
+
+                    
+                  </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="meta">
+                      <div class="photo" style="background-image: url(https://peru21.pe/resizer/aB_BjuHrjjHWoNgndGX9m6XSiTQ=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/6H2VUOA5Z5FOZNKQCIJZLPZLWA.jpg)"></div>
+                      <ul class="details">
+                       
+                      </ul>
+                    </div>
+                    <div class="description">
+                      <h1>Deseo explicar mi proyecto en video</h1>
+                    
+                      <p>graba un video explicando tu proyecto</p>                      
+                      <i class="cmn-t-pulse fa fa-video circle" data-toggle="modal" data-target="#myModalVideo"></i>
+                      
+                      
+                    </div>
+                  </div>
+                
+          </div>
+        </div>
+      </div>
+
+
+<!---------- Modal de form text------------------------- -->
+  <div class="modal fade" id="myModalText" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Explicanos tu proyecto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" >Enviar</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-------------------------fin de modal--------------------------->
+
+  <!---------- Modal de form audio------------------------- -->
+  <div class="modal fade" id="myModalAudio" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Explicanos tu proyecto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body" style="text-align:center;">
+              <button type="button" class="btn btn-danger btn-circle" (click)="initiateRecording()" *ngIf="!recording">
+                <i class="fas fa-microphone-alt" style="font-size: 40px;"></i>
+              </button>
+             
+              
+            
+            
+            
+            <button type="button" class="btn btn-danger btn-circle" (click)="stopRecording()" *ngIf="recording">
+              <i class="fas fa-stop" style="font-size: 40px;"></i>
+            </button>
+            
+
+              <div class="clearfix"></div>
+                   
+                        <audio controls="" *ngIf="url">
+                            <source [src]="sanitize(url)" type="audio/wav">
+                        </audio>
+                                                    
+                
+                    
+
+                
+
+                       
+                 
+              
+                  
+        </div>
+        <div class="modal-footer">
+          
+             
+            <button class="btn btn-danger" *ngIf="url" (click)="desechar()"><i class="fa fa-trash-alt"></i> &nbsp; Desechar</button>
+              <button type="button" class="btn btn-primary" >Enviar</button>
+          
+          
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-------------------------fin de modal--------------------------->
+
+
+  <!---------- Modal de form video------------------------- -->
+  <div class="modal fade" id="myModalVideo" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Explicanos tu proyecto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+            <video #video class="video"></video>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="startRecording()">Grabar</button>
+            <button type="button" class="btn btn-sucess" (click)="stopRecording()">Parar</button>
+          <button type="button" class="btn btn-primary" >Enviar</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-------------------------fin de modal--------------------------->
