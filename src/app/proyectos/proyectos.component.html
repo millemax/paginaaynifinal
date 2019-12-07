@@ -171,7 +171,7 @@
 
   <!---------- Modal de form video------------------------- -->
   <div class="modal fade" id="myModalVideo" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -182,11 +182,25 @@
 
         </div>
         <div class="modal-body">
-            <video #video class="video"></video>
+
+             <!--prueba de video-->
+
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video #video class="embed-responsive-item"></video>
+                
+                </div>
+
+              <!--fin de prueba de video-->
+            
+
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" (click)="startRecording()">Grabar</button>
-            <button type="button" class="btn btn-sucess" (click)="stopRecording()">Parar</button>
+            <button type="button" class="btn btn-success" (click)="stopRecordingVideo()">Parar</button>
+            
+            
           <button type="button" class="btn btn-primary" >Enviar</button>
           
         </div>
