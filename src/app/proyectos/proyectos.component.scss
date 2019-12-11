@@ -256,31 +256,7 @@ $color_grey_dark: #a2a2a2;
         margin: 0.15em;
         font-size: 3em;
   }
-  .cmn-t-pulse {
-    animation: pulse 1s ease infinite;
-    /* transition: transform 0.2s; */
-    
-  }
-  .cmn-t-pulse:hover{
-      animation: none;
-      display: inline-block;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(1.1);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
-  }
-
-
+ 
 
 
 //boton circular de  modal
@@ -339,6 +315,38 @@ $color_grey_dark: #a2a2a2;
 }
 
 
+
+//prueba de button pulse 
+
+.Rec{
+  width: 35px;
+	height: 35px;
+	font-size: 0;
+	background-color: red;
+	border: 0;
+	border-radius: 35px;
+	margin: 18px;
+  outline: none;
+  
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+	}
+}
+
+//fin de button pulse
 
 
 

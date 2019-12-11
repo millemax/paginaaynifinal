@@ -54,7 +54,7 @@
                   <div class="description">
                     <h1>Quiero explicar en audio mi proyecto</h1>             
                     
-                    <p>graba un audio explicando tu proyectos</p>
+                    <p>graba un audio explicando tu proyecto</p>
 
                     <i class="cmn-t-pulse fa fa-microphone circle" data-toggle="modal" data-target="#myModalAudio" ></i>
 
@@ -73,7 +73,7 @@
                       <h1>Deseo explicar mi proyecto en video</h1>
                     
                       <p>graba un video explicando tu proyecto</p>                      
-                      <i class="cmn-t-pulse fa fa-video circle" data-toggle="modal" data-target="#myModalVideo"></i>
+                      <i class="cmn-t-pulse fa fa-video circle" data-toggle="modal" data-target="#myModalVideo" (click)="grabar()"></i>
                       
                       
                     </div>
@@ -178,16 +178,18 @@
         <div class="modal-header">
           
           <h4 class="modal-title">Explicanos tu proyecto</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" (click)="cerrarTodo()">&times;</button>
 
         </div>
-        <div class="modal-body">
+        
+        <div class="modal-body" style="text-align: center;">
 
-             <!--prueba de video-->
-
+            <button class="Rec  btn pmd-btn-fab" *ngIf="botoncito">Recording</button>
                 <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
-                    <video #video class="embed-responsive-item"></video>
+                    
+                    <video #video class="embed-responsive-item" ></video>
+                    <video #video2 class="embed-responsive-item" autoplay></video>
                 
                 </div>
 
@@ -197,11 +199,13 @@
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="startRecording()">Grabar</button>
-            <button type="button" class="btn btn-success" (click)="stopRecordingVideo()">Parar</button>
+            <button type="button" class="btn btn-danger" (click)="almacenando()">Grabar</button>
+            <button type="button" class="btn btn-success" (click)="parar()" *ngIf="videito">Parar</button>
+            <button type="button" class="btn btn-success" (click)="desecharVideo()" *ngIf="videito">desechar</button>
+
             
             
-          <button type="button" class="btn btn-primary" >Enviar</button>
+          <button type="button" class="btn btn-primary" *ngIf="videito">Enviar</button>
           
         </div>
       </div>
