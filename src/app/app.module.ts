@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavebarComponent } from './navebar/navebar.component';
 import { PruebaComponent } from './prueba/prueba.component';
 
+//importamos modulos para hacer api rest
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 
 
@@ -37,6 +39,7 @@ import { PruebaComponent } from './prueba/prueba.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule
     
     
 

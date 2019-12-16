@@ -2,6 +2,15 @@ import { Component, OnInit ,ViewChild, AfterViewInit} from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
 
+//modulos para enviar a la base de datos
+import {Router} from '@angular/router'
+import {PhotoService} from '../services/photo.service'
+
+
+interface HtmlInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 // mediaRecorder nos dara un error al momento de compilarlo los solucionamos asi:
 declare var MediaRecorder: any;
 
@@ -12,6 +21,10 @@ declare var MediaRecorder: any;
   styleUrls: ['./proyectos.component.scss']
 })
 export class ProyectosComponent{
+
+//declaramos variables para enviar a mongodb
+  photoSelected: string | ArrayBuffer;
+  file: File;
 
 // declaramos variables para el video :
 mediaRecorder:any;
@@ -39,8 +52,36 @@ blobVideo:any;
   private url;
   private error;
 
-  constructor(private domSanitizer: DomSanitizer) { }
+  constructor(private domSanitizer: DomSanitizer,private photoService: PhotoService, private router: Router) { }
 
+  //codigo para enviar a mongodb
+
+  onPhotoSelected(event: HtmlInputEvent): void {
+    if (event.target.files && event.target.files[0]) {
+      this.file = <File>event.target.files[0];
+      // image preview
+      const reader = new FileReader();
+      reader.onload = e => this.photoSelected = reader.result;
+      reader.readAsDataURL(this.file);
+    }
+  }
+
+  uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement) {
+    this.photoService
+      .createPhoto(title.value, description.value, this.file)
+      .subscribe(
+        res => {
+          console.log(res);
+          console.log("datos enviados a mongodb")
+          //this.router.navigate(['/photos'])
+        },
+        err => console.log(err)
+      );
+    return false;
+  }
+
+
+  //fin codigo mongodb
   
   
   //codigo de video
