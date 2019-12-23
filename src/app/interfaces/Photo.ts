@@ -3,4 +3,5 @@ export interface Photo {
     title: string;
     description: string;
     imagePath: string;
+    categoria:string;
 }

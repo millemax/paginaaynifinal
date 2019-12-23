@@ -7,9 +7,12 @@ import {Router} from '@angular/router'
 import {PhotoService} from '../services/photo.service'
 
 
+
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
+
+
 
 // mediaRecorder nos dara un error al momento de compilarlo los solucionamos asi:
 declare var MediaRecorder: any;
@@ -22,9 +25,17 @@ declare var MediaRecorder: any;
 })
 export class ProyectosComponent{
 
+//variables del texto para enviar a mongodb
+titulotext:string;
+descriptiontext:string;
+
+
 //declaramos variables para enviar a mongodb
   photoSelected: string | ArrayBuffer;
   file: File;
+
+  audio:File;
+
 
 // declaramos variables para el video :
 mediaRecorder:any;
@@ -51,11 +62,14 @@ blobVideo:any;
   //Url of Blob
   private url;
   private error;
+  
+  
 
   constructor(private domSanitizer: DomSanitizer,private photoService: PhotoService, private router: Router) { }
 
   //codigo para enviar a mongodb
 
+  
   onPhotoSelected(event: HtmlInputEvent): void {
     if (event.target.files && event.target.files[0]) {
       this.file = <File>event.target.files[0];
@@ -64,11 +78,40 @@ blobVideo:any;
       reader.onload = e => this.photoSelected = reader.result;
       reader.readAsDataURL(this.file);
     }
+  } 
+
+  // funcion para enviar a la base de datos 
+  texto(){
+     
+    // creee un archivo txt por que no permite la api rest enviar archivos vacios.
+      var file = new File(["audio"], "audio.txt", {
+        type: "text/plain",
+      });
+    
+    const cat="texto";
+    console.log(this.titulotext);
+    console.log(this.descriptiontext);
+    this.photoService.createPhoto(this.titulotext,this.descriptiontext,file,cat)
+          .subscribe(res=>{
+            console.log(res)
+            console.log("texto enviado a la BD");
+            
+            this.titulotext="";
+            this.descriptiontext="";
+            
+          },
+          err=>console.log(err) 
+          )
+          return false;
+    
   }
 
+  //funcion para enviar el audio a bd
+
   uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement) {
+    const cat="audio"
     this.photoService
-      .createPhoto(title.value, description.value, this.file)
+      .createPhoto(title.value, description.value, this.file,cat)
       .subscribe(
         res => {
           console.log(res);
@@ -79,6 +122,12 @@ blobVideo:any;
       );
     return false;
   }
+
+
+  //funcion para enviar el video a la base de datos
+
+
+
 
 
   //fin codigo mongodb
@@ -265,6 +314,7 @@ stopRecording() {
  * @param  {any} blob Blog
  */
 processRecording(blob) {
+    this.audio = new File([blob], "audio.wav");
     this.url = URL.createObjectURL(blob);
 }
 /**

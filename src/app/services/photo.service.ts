@@ -14,11 +14,12 @@ export class PhotoService {
   constructor(private http: HttpClient) { }
 
 
-  createPhoto(title: string, description: string, photo: File) {
+  createPhoto(title: string, description: string, photo: File,categoria:string) {
     const fd = new FormData();
     fd.append('title', title);
     fd.append('description', description);
     fd.append('image', photo);
+    fd.append('categoria',categoria);
     return this.http.post(this.URI, fd);
   }
 
@@ -34,8 +35,8 @@ export class PhotoService {
     return this.http.delete(`${this.URI}/${id}`);
   }
 
-  updatePhoto(id: string, title: string, description: string) {
-    return this.http.put(`${this.URI}/${id}`, {title, description});
+  updatePhoto(id: string, title: string, description: string, categoria:string) {
+    return this.http.put(`${this.URI}/${id}`, {title, description,categoria});
   }
 
   

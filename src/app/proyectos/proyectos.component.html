@@ -97,10 +97,16 @@
 
         </div>
         <div class="modal-body">
-          <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
-        </div>
+          <form action="">
+
+          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Agregale un título" name="titulo" [(ngModel)]="titulotext">
+          <br>
+          <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="Descripción"  name="description" [(ngModel)]="descriptiontext"></textarea>
+        </form>
+       </div>
+      
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" >Enviar</button>
+          <button type="button" class="btn btn-primary"  (click)="texto()">Enviar</button>
           
         </div>
       </div>
@@ -155,7 +161,7 @@
           
              
             <button class="btn btn-danger" *ngIf="url" (click)="desechar()"><i class="fa fa-trash-alt"></i> &nbsp; Desechar</button>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Enviar</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Enviar</button>
           
           
           

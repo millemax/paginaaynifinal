@@ -9,6 +9,7 @@ import { MultimediaComponent } from './multimedia/multimedia.component';
 import { ContactenosComponent } from './contactenos/contactenos.component';
 import { FinalComponent } from './final/final.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms'
 
 // angular material
 
@@ -16,7 +17,10 @@ import { NavebarComponent } from './navebar/navebar.component';
 import { PruebaComponent } from './prueba/prueba.component';
 
 //importamos modulos para hacer api rest
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 
@@ -39,7 +43,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
     
     
 
