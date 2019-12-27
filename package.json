@@ -26,6 +26,7 @@
     "angular-video-background": "^1.0.3",
     "animate.css": "^3.7.2",
     "hammerjs": "^2.0.8",
+    "hover.css": "^2.3.2",
     "ngx-facebook": "^2.4.0",
     "ngx-swiper-wrapper": "^8.0.2",
     "recordrtc": "^5.5.8",

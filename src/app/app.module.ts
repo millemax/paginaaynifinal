@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavebarComponent } from './navebar/navebar.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { Prueba2Component } from './prueba2/prueba2.component';
+import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 
 
 
@@ -31,6 +33,8 @@ import { PruebaComponent } from './prueba/prueba.component';
     FinalComponent,
     NavebarComponent,
     PruebaComponent,
+    Prueba2Component,
+    PiePaginaComponent,
     
   ],
   imports: [
