@@ -1,0 +1,75 @@
+.container{
+    
+}
+.titleSOLO{
+    font-family: 'Dancing Script', cursive;
+  }
+//botones
+.btn-circle.btn-xl {
+    width: 90px;
+    height: 90px;
+    padding: 10px 16px;
+    border-radius: 55px;
+    font-size: 30px;
+    line-height: 1.33;
+    border-color: #FFFFFF;
+    background-color: #022636;
+   // padding-bottom: 50rem;
+    
+}
+
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    
+    
+}
+//iconos dentro de los botones
+.fa-headphones-alt,.fa-film,.fa-book-open{
+    color: #FFFFFF;
+    font-size: 50px;
+}
+//efectos hover para los botones 
+.icon{
+    flex-wrap: wrap;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto ;
+    align-content: center;
+}
+.icon{
+
+    display: block;
+    position: relative;
+    transition: -5s;
+    //z-index: 1;
+    overflow: hidden;
+    //padding: 0rem;
+    border-radius:100px ;
+    //text-align: center;
+     
+
+}
+.icon:hover{
+    transform: scale(1.3);
+}
+/*elementos seudo*/
+.icon button::before{
+    content: "";
+    position: absolute;
+    transform: scale(2);
+    top: 0;
+    left: 0;
+    transition: -5s;
+    transition-duration: 2s;
+}
+.icon button:hover::before{
+    transform: scale(0);
+}
+//----------------------
+

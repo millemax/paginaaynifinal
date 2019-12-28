@@ -1,7 +1,41 @@
 .sectionservice{
     padding-top: 30px;
-    background-image: url("/assets/img/fondocel.png");
+    background-image: url("/assets/img/fondocel.png") ;
     padding-bottom: 50px;
   //background-color:purple;
 }
+//fondo de secccion o componente multimedia
+.multimedia{  
+ //height: 100vh;
+ width: 100%;
+ background-color: #022636;
+}
 
+
+.contenedor{
+  
+  //moviendo la caja .contenedor
+  //height: auto;
+  //width: 50%;
+  margin-left: auto;
+  margin-right:auto ;
+  //moviendo el fondo de imagen logo contorneado
+  //background-color: rgba(153, 205, 50, 0.335);
+  background-image: url("/assets/img/logocontorno.png");
+  background-size: 85vh;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: center;
+
+  //transision de la imagen
+  animation-duration: 1s;
+  animation-delay: 1s;
+ //
+ //z-index: 1;
+ }
+//ocultar imagen de fondo en version movil
+@media screen and (max-width: 980px) {
+.contenedor{
+ background-image: none;
+      }
+}

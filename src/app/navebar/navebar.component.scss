@@ -35,7 +35,7 @@
   //font-family: 'Calistoga', cursive;
   //font-family: 'Libre Baskerville', serif;
   //font-family: 'Lobster', cursive;
-  font-family: 'Bitter', serif; //puede seer
+  //font-family: 'Bitter', serif; //puede seer
   //font-family: 'Varela Round', sans-serif;
   text-shadow: 4px 4px 4px #aaa ; //sombra de texto
   //font-family: 'Tangerine', serif;
@@ -47,3 +47,42 @@
 text-align: left;  
 
 }
+//estilos de presentacion div sobre el video
+
+view .contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+//barra delgada division
+hr {
+animation-duration: 1s;
+animation-delay: 1s;
+width: auto;
+height: 1px;
+border-color: #0682B6;
+}  
+/*contenedor de presentacion sobre el video*/
+.centrado{
+//font-family: 'Dancing Script', cursive;
+position: absolute;
+top: 42%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+h3{
+
+//animation-duration: 1s;
+//animation-delay: 2s;
+font-family: 'Anton', sans-serif;
+font-size: 40px;
+//animation-iteration-count: infinite;
+}
+.contenedor p{
+//animation-duration: 1s;
+//animation-delay: 2s;
+font-family: 'Anton light', sans-serif;
+font-size: 16px;
+
+}
+/*fin ---contenedor de presentacion sobre el video*/

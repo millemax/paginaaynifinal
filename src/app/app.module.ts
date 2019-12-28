@@ -15,6 +15,8 @@ import {FormsModule} from '@angular/forms'
 
 import { NavebarComponent } from './navebar/navebar.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { Prueba2Component } from './prueba2/prueba2.component';
+import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 
 //importamos modulos para hacer api rest
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -49,6 +51,8 @@ import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
     FinalComponent,
     NavebarComponent,
     PruebaComponent,
+    Prueba2Component,
+    PiePaginaComponent,
     
   ],
   imports: [
