@@ -164,7 +164,7 @@ blobVideo:any;
   enviarvideo(){
     console.log("enviaando el video...")
     console.log(this.fileVideo);
-    console.log(this.mensajevideo);
+    
     
     const cat="video";
     this.photoService.createPhoto(this.titulovideo,this.descripcionvideo,this.fileVideo,cat)
