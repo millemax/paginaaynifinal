@@ -20,6 +20,18 @@ import { PruebaComponent } from './prueba/prueba.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
+//modulos para el toast
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule} from '@angular/common';
+
+
+//modulo de ngbootstrap
+import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
+
 
 
 
@@ -45,6 +57,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,    
+    ToastrModule.forRoot(), // ToastrModule added
+    NgbCollapseModule
+
     
     
 

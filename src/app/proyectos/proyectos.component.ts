@@ -7,6 +7,10 @@ import {Router} from '@angular/router'
 import {PhotoService} from '../services/photo.service'
 
 
+//modulo de las alertas
+import { ToastrService } from 'ngx-toastr';
+
+
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -24,10 +28,21 @@ declare var MediaRecorder: any;
   styleUrls: ['./proyectos.component.scss']
 })
 export class ProyectosComponent{
+//variable booleano para collapse
+isCollapsed:boolean=true;
 
 //variables del texto para enviar a mongodb
 titulotext:string;
 descriptiontext:string;
+
+//variables de audio
+tituloaudio:string;
+descripcionaudio:string;
+
+//variables de video
+titulovideo:string;
+descripcionvideo:string;
+
 
 
 //declaramos variables para enviar a mongodb
@@ -35,6 +50,11 @@ descriptiontext:string;
   file: File;
 
   audio:File;
+
+  fileVideo:File;
+
+  mensajevideo:string;
+  
 
 
 // declaramos variables para el video :
@@ -65,7 +85,9 @@ blobVideo:any;
   
   
 
-  constructor(private domSanitizer: DomSanitizer,private photoService: PhotoService, private router: Router) { }
+  constructor(private domSanitizer: DomSanitizer,private photoService: PhotoService, private router: Router,private toastr: ToastrService) { }
+
+  
 
   //codigo para enviar a mongodb
 
@@ -98,15 +120,64 @@ blobVideo:any;
             
             this.titulotext="";
             this.descriptiontext="";
+            this.toastr.success('envio exitoso de texto', 'Correcto!');
             
           },
-          err=>console.log(err) 
-          )
+          err=>{
+
+            this.toastr.error('no se pudo enviar','¡Error!');
+          }
+          
+          );
           return false;
     
   }
 
   //funcion para enviar el audio a bd
+
+  enviaraudio(){
+    const cat="audio";
+
+    console.log(this.tituloaudio,this.descripcionaudio);
+    this.photoService.createPhoto(this.tituloaudio,this.descripcionaudio,this.audio,cat)
+            .subscribe(res=>{
+              this.tituloaudio="";
+              this.descripcionaudio="";
+              this.toastr.success('envio exitoso de audio', 'Correcto!')
+
+
+            },
+            
+            err=>{
+              this.toastr.error('no se puedo enviar el audio','¡Error!')
+            }
+            
+            );
+
+
+    return false;
+    
+    
+  }
+
+  //funcion para enviar el video
+  enviarvideo(){
+    console.log("enviaando el video...")
+    console.log(this.fileVideo);
+    console.log(this.mensajevideo);
+    
+    const cat="video";
+    this.photoService.createPhoto(this.titulovideo,this.descripcionvideo,this.fileVideo,cat)
+            .subscribe(res=>{
+              this.toastr.success('envio exitoso de video','Correcto!')
+
+            },
+            err=>{
+                this.toastr.error('no se pudo enviar video','Error!')
+            }
+            );
+
+  }
 
   uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement) {
     const cat="audio"
@@ -164,7 +235,7 @@ grabar(){
 
   
 recordVideo(stream){
-     let chunks=[];
+    let chunks=[];
      
     console.log("captando el stream");
     this.toggleControls();
@@ -187,28 +258,36 @@ recordVideo(stream){
   //producir una archivo final
     this.mediaRecorder.ondataavailable=function(e){
 
-        chunks.push(e.data)
+       chunks.push(e.data)
     }
 
   //cuando finaliza la grabacion guarda el archivo en un tipo blob  que esta guardado en el chunks
     
     this.mediaRecorder.onstop=function(){
 
-      
-       this.blobVideo= new Blob(chunks,{type:"video/webm"});
+       
+       this.blobVideo= new Blob(chunks,{type:'video/webm'});
+       
       chunks=[];  
+      console.log("en el ONSTOP");
+      this.mensajevideo="archivo cambiado en onstop";
+      
+      this.fileVideo = new File([this.blobVideo], "video.webm");
+      
+      console.log(this.fileVideo);
 
       // convirtiendo en una url  el video 
-      this.urlVideo=window.URL.createObjectURL(this.blobVideo);      
+      this.urlVideo=window.URL.createObjectURL(this.blobVideo);
+           
       video2.src= this.urlVideo;
       this.grabando=true;
       
       
-      console.log("grabacion finalizada");
+      console.log("grabacion finalizada en onstop");
+      
       
 
-
-    }
+    };
     
 
   
@@ -227,16 +306,18 @@ recordVideo(stream){
   }
 
   parar(){
+    
+    
     this.botoncito=false;
     let video: HTMLVideoElement = this.video.nativeElement;     
     video.srcObject=null;
-    this.mediaRecorder.stop();
-    this.localmedia.stop();
-    //this.toggleControl2();
+    this.mediaRecorder.stop() ;       
+    this.localmedia.stop(); 
     
     
-    console.log("finalizar grabacion")
+    console.log("parar grabacion")
   }
+
 
   desecharVideo(){
     this.botoncito=false;   
@@ -269,7 +350,7 @@ recordVideo(stream){
 
 
 
-
+//-------------------codigo del audio................
 
 
 sanitize(url:string){
@@ -279,7 +360,7 @@ sanitize(url:string){
  * Start recording.
  */
 initiateRecording() {
-    
+    this.isCollapsed=true;
     this.recording = true;
     let mediaConstraints = {
         video: false,
@@ -306,6 +387,7 @@ successCallback(stream) {
  * Stop recording.
  */
 stopRecording() {
+    this.isCollapsed=false
     this.recording = false;
     this.record.stop(this.processRecording.bind(this));
 }
@@ -316,6 +398,7 @@ stopRecording() {
 processRecording(blob) {
     this.audio = new File([blob], "audio.wav");
     this.url = URL.createObjectURL(blob);
+    console.log(this.audio)
 }
 /**
  * Process Error.
@@ -326,6 +409,7 @@ errorCallback(error) {
  
 desechar(){
   this.url=null;
+  this.isCollapsed=true;
 }
 
 

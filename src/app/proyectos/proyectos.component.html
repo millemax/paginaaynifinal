@@ -99,14 +99,14 @@
         <div class="modal-body">
           <form action="">
 
-          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Agregale un título" name="titulo" [(ngModel)]="titulotext">
+          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Agregale un título" name="titulo" [(ngModel)]="titulotext" required>
           <br>
-          <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="Descripción"  name="description" [(ngModel)]="descriptiontext"></textarea>
+          <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="Descripción"  name="description" [(ngModel)]="descriptiontext" required></textarea>
         </form>
        </div>
       
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"  (click)="texto()">Enviar</button>
+          <button type="button" class="btn btn-primary"  (click)="texto()" data-dismiss="modal" [disabled]="!titulotext || !descriptiontext">Enviar</button>
           
         </div>
       </div>
@@ -124,7 +124,7 @@
       <div class="modal-content">
         <div class="modal-header">
           
-          <h4 class="modal-title">Explicanos tu proyecto</h4>
+          <h4 class="modal-title">Grabar el audio</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
         </div>
@@ -137,7 +137,7 @@
             
             
             
-            <button type="button" class="btn btn-danger btn-circle" (click)="stopRecording()" *ngIf="recording">
+            <button type="button" class="btn btn-danger btn-circle" (click)="stopRecording()" *ngIf="recording" >
               <i class="fas fa-stop" style="font-size: 40px;"></i>
             </button>
             
@@ -146,9 +146,15 @@
                    
                         <audio controls="" *ngIf="url">
                             <source [src]="sanitize(url)" type="audio/wav">
-                        </audio>                    
-                
-                    
+                        </audio>    
+                        <br>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                  <div>
+              <input type="text"   class="form-control" [disabled]="!url" placeholder="Agregale un título" name="tituloaudio" [(ngModel)]="tituloaudio">
+              <br>
+              <textarea rows="5"  class="form-control" [disabled]="!url" placeholder="Una pequeña descripción" name="descripcionaudio" [(ngModel)]="descripcionaudio"></textarea>              
+                </div>
+            </div>  
 
                 
 
@@ -160,8 +166,8 @@
         <div class="modal-footer">
           
              
-            <button class="btn btn-danger" *ngIf="url" (click)="desechar()"><i class="fa fa-trash-alt"></i> &nbsp; Desechar</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Enviar</button>
+            <button class="btn btn-danger" *ngIf="url" (click)="desechar()"><i class="fa fa-trash-alt" data-toggle="collapse" data-target="#collapseExample"  aria-controls="collapseExample"></i> &nbsp; Desechar</button>
+            <button type="button" class="btn btn-primary" (click)="enviaraudio()" [disabled]="!url" data-dismiss="modal">Enviar</button>
           
           
           
@@ -194,7 +200,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     
                     <video #video class="embed-responsive-item" ></video>
-                    <video #video2 class="embed-responsive-item" autoplay></video>
+                    
                 
                 </div>
 
@@ -204,13 +210,9 @@
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="almacenando()">Grabar</button>
-            <button type="button" class="btn btn-success" (click)="parar()" *ngIf="videito">Parar</button>
-            <button type="button" class="btn btn-success" (click)="desecharVideo()" *ngIf="videito">desechar</button>
-
+            <button type="button" class="btn btn-danger" (click)="almacenando()"><i class="far fa-circle" style="font-size: 25px;" ></i>&nbsp; Grabar</button>
+            <button type="button" class="btn btn-primary" (click)="parar()" *ngIf="videito"  data-dismiss="modal" data-toggle="modal" data-target="#exampleModal"><i class="far fa-stop-circle" style="font-size: 25px;"></i>&nbsp; Parar</button>
             
-            
-          <button type="button" class="btn btn-primary" *ngIf="videito">Enviar</button>
           
         </div>
       </div>
@@ -220,58 +222,39 @@
   
   <!-------------------------fin de modal--------------------------->
 
-
-
-  <!--modal para enviar el archivo  a mongodb-->
-
-  
+<!-----------modal para el otro video-------------->
+<!-- Button trigger modal -->
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Grabado</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="col-lg-4 mx-auto">
-          <div class="card">
-              <div class="card-header">
-                  Upload a Photo
-              </div>
-              <div class="card-body">
-                  <form (submit)="uploadPhoto(title, description)">
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Photo's Title" #title>
-                      </div>
-                      <div class="form-group">
-                          <textarea rows="2" class="form-control" placeholder="Photo's Description"  #description></textarea>
-                      </div>
-      
-                      <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
-                      <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No image"
-                          (click)="photoInput.click()">
-      
-                      <button class="btn btn-primary btn-block">
-                          Upload
-                      </button>
-                  </form>
-              </div>
-          </div>
-      </div>
+        <div class="embed-responsive embed-responsive-4by3">
+          <video #video2 class="embed-responsive-item" controls></video>
+        </div>
+        <div>
+          <br>
+          <input type="text"   class="form-control"  placeholder="Agregale un título" name="tituloaudio" [(ngModel)]="titulovideo">
+          <br>
+          <textarea rows="5"  class="form-control"  placeholder="Una pequeña descripción" name="descripcionaudio" [(ngModel)]="descripcionvideo"></textarea>              
+            </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-danger" (click)="desecharVideo()" data-dismiss="modal" data-toggle="modal" data-target="#myModalVideo"><i class="fas fa-trash-alt"></i>&nbsp; desechar</button>           
+            
+            <button type="button" class="btn btn-success"  (click)="enviarvideo()" data-dismiss="modal" [disabled]="!titulovideo || !descripcionvideo"><i class="fas fa-paper-plane"></i>&nbsp; Enviar</button>
+        
       </div>
     </div>
   </div>
 </div>
 
-
-
-  <!--fin de modal para enviar archivo a mongodb-->
+  
