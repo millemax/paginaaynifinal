@@ -1,0 +1,19 @@
+[33mcommit 23b98c5dfa4034023595e31e726e999fbd86e6c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: millermax <romel_23_3@hotmail.com>
+Date:   Sat Dec 28 09:00:00 2019 -0500
+
+    video carga vacio a la bd
+
+[1mdiff --git a/src/app/proyectos/proyectos.component.ts b/src/app/proyectos/proyectos.component.ts[m
+[1mindex 0c08158..369efe2 100644[m
+[1m--- a/src/app/proyectos/proyectos.component.ts[m
+[1m+++ b/src/app/proyectos/proyectos.component.ts[m
+[36m@@ -164,7 +164,7 @@[m [mblobVideo:any;[m
+   enviarvideo(){[m
+     console.log("enviaando el video...")[m
+     console.log(this.fileVideo);[m
+[31m-    console.log(this.mensajevideo);[m
+[32m+[m[41m    [m
+     [m
+     const cat="video";[m
+     this.photoService.createPhoto(this.titulovideo,this.descripcionvideo,this.fileVideo,cat)[m

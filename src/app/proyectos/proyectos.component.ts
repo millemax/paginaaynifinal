@@ -160,25 +160,7 @@ blobVideo:any;
     
   }
 
-  //funcion para enviar el video
-  enviarvideo(){
-    console.log("enviaando el video...")
-    console.log(this.fileVideo);
-    
-    
-    const cat="video";
-    this.photoService.createPhoto(this.titulovideo,this.descripcionvideo,this.fileVideo,cat)
-            .subscribe(res=>{
-              this.toastr.success('envio exitoso de video','Correcto!')
-
-            },
-            err=>{
-                this.toastr.error('no se pudo enviar video','Error!')
-            }
-            );
-
-  }
-
+  
   uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement) {
     const cat="audio"
     this.photoService
@@ -231,6 +213,30 @@ grabar(){
         
   }
 
+//archivo de video
+archivovideo(video:File){
+  console.log("archivos video =>",video);
+  
+}
+
+//funcion para enviar el video
+enviarvideo(){
+  console.log("enviaando el video...")
+  console.log(this.fileVideo);
+  
+  
+  const cat="video";
+  this.photoService.createPhoto(this.titulovideo,this.descripcionvideo,this.fileVideo,cat)
+          .subscribe(res=>{
+            this.toastr.success('envio exitoso de video','Correcto!')
+
+          },
+          err=>{
+              this.toastr.error('no se pudo enviar video','Error!')
+          }
+          );
+
+}
 
 
   
@@ -273,6 +279,7 @@ recordVideo(stream){
       this.mensajevideo="archivo cambiado en onstop";
       
       this.fileVideo = new File([this.blobVideo], "video.webm");
+      this.archivovideo(this.fileVideo);
       
       console.log(this.fileVideo);
 

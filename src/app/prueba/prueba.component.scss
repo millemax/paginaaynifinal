@@ -35,12 +35,12 @@ transition: .5s;
 }
 .col-sm-4:nth-child(2) .card,
 .col-sm-4:nth-child(2) .card .title .fa{
-  background: linear-gradient(-45deg,#ffec61,#f321d7);
+  background: linear-gradient(-45deg,#FF6185,#0AF1F5);
 
 }
 .col-sm-4:nth-child(3) .card,
 .col-sm-4:nth-child(3) .card .title .fa{
-  background: linear-gradient(-45deg,#24ff72,#9a4eff);
+  background: linear-gradient(-45deg,#FF6185,#0AF1F5);
 
 }
 .card::before{
@@ -137,7 +137,25 @@ font-size: 16px;
 
 
 // tipo de fuente para el titulo1
-
+.negrita{
+  font-family:'raleway:bold' sans-serif,;
+}
 .titleone{
-    font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+}
+
+.titulosistema{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.iconoedificio{
+  max-width: 80px;
+  max-height: 80px;
+  fill:red;
+
+}
+.iconoapp{
+  max-width: 80px;
+  max-height: 80px;
 }
