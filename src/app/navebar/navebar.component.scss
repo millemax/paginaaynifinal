@@ -1,46 +1,49 @@
 ///estilos del video para responsive y nabvar
-
-  @media (max-width: 740px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 100vh;
-    }
+@media screen and (max-width: 740px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 100vh;
   }
 
-  .top-nav-collapse {
-    background-color: #7ca9c760 !important;
+  .video{
+    width: 100vw;
   }
+}
 
+.top-nav-collapse {
+  background-color: #7ca9c760 !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 991px) {
   .navbar:not(.top-nav-collapse) {
-    background: transparent !important;
+    background: #7ca9c760 !important;
   }
+}
 
-  @media (max-width: 991px) {
-    .navbar:not(.top-nav-collapse) {
-      background: #7ca9c760 !important;
-    }
-  }
+.rgba-gradient {
+ background: -moz-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+ background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+ background: linear-gradient(to 45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+}
 
-  .rgba-gradient {
-   background: -moz-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-   background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-   background: linear-gradient(to 45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-  }
-
-  ///fin de estilos de navbar y video de fondo
-  ///ESTILOS DE letra con google fonts
+///fin de estilos de navbar y video de fondo
+///ESTILOS DE letra con google fonts
 .navbar-nav {
-  //font-family: 'Calistoga', cursive;
-  //font-family: 'Libre Baskerville', serif;
-  //font-family: 'Lobster', cursive;
-  //font-family: 'Bitter', serif; //puede seer
-  //font-family: 'Varela Round', sans-serif;
-  text-shadow: 4px 4px 4px #aaa ; //sombra de texto
-  //font-family: 'Tangerine', serif;
-  //font-family: 'Indie Flower', cursive;
-  font-size:15px ;
+//font-family: 'Calistoga', cursive;
+//font-family: 'Libre Baskerville', serif;
+//font-family: 'Lobster', cursive;
+//font-family: 'Bitter', serif; //puede seer
+//font-family: 'Varela Round', sans-serif;
+text-shadow: 4px 4px 4px #aaa ; //sombra de texto
+//font-family: 'Tangerine', serif;
+//font-family: 'Indie Flower', cursive;
+font-size:15px ;
 }
 //posicion en navbar lista en tooglemenu
 .navbar-nav a{
@@ -48,11 +51,14 @@ text-align: left;
 
 }
 //estilos de presentacion div sobre el video
+video{
+  width: 100%;
+}
 
 view .contenedor{
-  position: relative;
-  display: inline-block;
-  text-align: center;
+position: relative;
+display: inline-block;
+text-align: center;
 }
 //barra delgada division
 hr {
